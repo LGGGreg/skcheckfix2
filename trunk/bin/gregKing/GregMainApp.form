@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?><Form builder="jigloo" ide="eclipse" style="SWT" version="2.7.2">
+<ExtraComponents>
+		<Component class="org.eclipse.swt.widgets.Menu" name="jMenuBar1" style="2">
+			<Constraints>
+				<LayoutConstraint/>
+			</Constraints>
+			<Layout class="Fill">
+				<Property name="type" type="int" value="256"/>
+				<Property name="marginWidth" type="int" value="0"/>
+				<Property name="marginHeight" type="int" value="0"/>
+				<Property name="spacing" type="int" value="0"/>
+			</Layout>
+			<Events>
+			</Events>
+			<Properties>
+			</Properties>
+			<SubComponents>
+				<Component class="org.eclipse.swt.widgets.MenuItem" name="jMenu3" style="64">
+					<Constraints>
+						<LayoutConstraint/>
+					</Constraints>
+					<Layout class="Absolute">
+					</Layout>
+					<Events>
+					</Events>
+					<Properties>
+						<Property name="text" type="String" value="File"/>
+					</Properties>
+					<SubComponents>
+						<Component class="org.eclipse.swt.widgets.Menu" name="menu1" style="0">
+							<Constraints>
+								<LayoutConstraint/>
+							</Constraints>
+							<Events>
+							</Events>
+							<Properties>
+							</Properties>
+							<SubComponents>
+								<Component class="org.eclipse.swt.widgets.MenuItem" name="newFileMenuItem" style="0">
+									<Constraints>
+										<LayoutConstraint/>
+									</Constraints>
+									<Layout class="Absolute">
+									</Layout>
+									<Events>
+									</Events>
+									<Properties>
+										<Property name="text" type="String" value="New"/>
+									</Properties>
+								</Component>
+								<Component class="org.eclipse.swt.widgets.MenuItem" name="openFileMenuItem" style="0">
+									<Constraints>
+										<LayoutConstraint/>
+									</Constraints>
+									<Layout class="Absolute">
+									</Layout>
+									<Events>
+									</Events>
+									<Properties>
+										<Property name="text" type="String" value="Open"/>
+									</Properties>
+								</Component>
+								<Component class="org.eclipse.swt.widgets.MenuItem" name="saveMenuItem" style="0">
+									<Constraints>
+										<LayoutConstraint/>
+									</Constraints>
+									<Layout class="Absolute">
+									</Layout>
+									<Events>
+									</Events>
+									<Properties>
+										<Property name="text" type="String" value="Save"/>
+									</Properties>
+								</Component>
+								<Component class="org.eclipse.swt.widgets.MenuItem" name="saveAsMenuItem" style="0">
+									<Constraints>
+										<LayoutConstraint/>
+									</Constraints>
+									<Layout class="Absolute">
+									</Layout>
+									<Events>
+									</Events>
+									<Properties>
+										<Property name="text" type="String" value="Save As ..."/>
+									</Properties>
+								</Component>
+								<Component class="org.eclipse.swt.widgets.MenuItem" name="closeFileMenuItem" style="0">
+									<Constraints>
+										<LayoutConstraint/>
+									</Constraints>
+									<Layout class="Absolute">
+									</Layout>
+									<Events>
+									</Events>
+									<Properties>
+										<Property name="text" type="String" value="Close"/>
+									</Properties>
+								</Component>
+								<Component class="org.eclipse.swt.widgets.MenuItem" name="jSeparator2" style="2">
+									<Constraints>
+										<LayoutConstraint/>
+									</Constraints>
+									<Layout class="Absolute">
+									</Layout>
+									<Events>
+									</Events>
+									<Properties>
+									</Properties>
+								</Component>
+								<Component class="org.eclipse.swt.widgets.MenuItem" name="exitMenuItem" style="0">
+									<Constraints>
+										<LayoutConstraint/>
+									</Constraints>
+									<Layout class="Absolute">
+									</Layout>
+									<Events>
+									</Events>
+									<Properties>
+										<Property name="text" type="String" value="Exit"/>
+									</Properties>
+								</Component>
+							</SubComponents>
+						</Component>
+					</SubComponents>
+				</Component>
+				<Component class="org.eclipse.swt.widgets.MenuItem" name="jMenu4" style="64">
+					<Constraints>
+						<LayoutConstraint/>
+					</Constraints>
+					<Layout class="Absolute">
+					</Layout>
+					<Events>
+					</Events>
+					<Properties>
+						<Property name="text" type="String" value="Edit"/>
+					</Properties>
+					<SubComponents>
+						<Component class="org.eclipse.swt.widgets.Menu" name="menu2" style="0">
+							<Constraints>
+								<LayoutConstraint/>
+							</Constraints>
+							<Events>
+							</Events>
+							<Properties>
+							</Properties>
+							<SubComponents>
+								<Component class="org.eclipse.swt.widgets.MenuItem" name="cutMenuItem" style="0">
+									<Constraints>
+										<LayoutConstraint/>
+									</Constraints>
+									<Layout class="Absolute">
+									</Layout>
+									<Events>
+									</Events>
+									<Properties>
+										<Property name="text" type="String" value="Cut"/>
+									</Properties>
+								</Component>
+								<Component class="org.eclipse.swt.widgets.MenuItem" name="copyMenuItem" style="0">
+									<Constraints>
+										<LayoutConstraint/>
+									</Constraints>
+									<Layout class="Absolute">
+									</Layout>
+									<Events>
+									</Events>
+									<Properties>
+										<Property name="text" type="String" value="Copy"/>
+									</Properties>
+								</Component>
+								<Component class="org.eclipse.swt.widgets.MenuItem" name="pasteMenuItem" style="0">
+									<Constraints>
+										<LayoutConstraint/>
+									</Constraints>
+									<Layout class="Absolute">
+									</Layout>
+									<Events>
+									</Events>
+									<Properties>
+										<Property name="text" type="String" value="Paste"/>
+									</Properties>
+								</Component>
+								<Component class="org.eclipse.swt.widgets.MenuItem" name="jSeparator1" style="2">
+									<Constraints>
+										<LayoutConstraint/>
+									</Constraints>
+									<Layout class="Absolute">
+									</Layout>
+									<Events>
+									</Events>
+									<Properties>
+									</Properties>
+								</Component>
+								<Component class="org.eclipse.swt.widgets.MenuItem" name="deleteMenuItem" style="0">
+									<Constraints>
+										<LayoutConstraint/>
+									</Constraints>
+									<Layout class="Absolute">
+									</Layout>
+									<Events>
+									</Events>
+									<Properties>
+										<Property name="text" type="String" value="Delete"/>
+									</Properties>
+								</Component>
+							</SubComponents>
+						</Component>
+					</SubComponents>
+				</Component>
+				<Component class="org.eclipse.swt.widgets.MenuItem" name="jMenu5" style="64">
+					<Constraints>
+						<LayoutConstraint/>
+					</Constraints>
+					<Layout class="Absolute">
+					</Layout>
+					<Events>
+					</Events>
+					<Properties>
+						<Property name="text" type="String" value="Help"/>
+					</Properties>
+					<SubComponents>
+						<Component class="org.eclipse.swt.widgets.Menu" name="menu3" style="0">
+							<Constraints>
+								<LayoutConstraint/>
+							</Constraints>
+							<Events>
+							</Events>
+							<Properties>
+							</Properties>
+							<SubComponents>
+								<Component class="org.eclipse.swt.widgets.MenuItem" name="helpMenuItem" style="0">
+									<Constraints>
+										<LayoutConstraint/>
+									</Constraints>
+									<Layout class="Absolute">
+									</Layout>
+									<Events>
+									</Events>
+									<Properties>
+										<Property name="text" type="String" value="Help"/>
+									</Properties>
+								</Component>
+								<Component class="org.eclipse.swt.widgets.MenuItem" name="jMenuItem1" style="0">
+									<Constraints>
+										<LayoutConstraint/>
+									</Constraints>
+									<Layout class="Absolute">
+									</Layout>
+									<Events>
+									</Events>
+									<Properties>
+										<Property name="text" type="String" value="Help"/>
+									</Properties>
+								</Component>
+							</SubComponents>
+						</Component>
+					</SubComponents>
+				</Component>
+				<Component class="org.eclipse.swt.widgets.MenuItem" name="gREG" style="64">
+					<Constraints>
+						<LayoutConstraint/>
+					</Constraints>
+					<Layout class="Absolute">
+					</Layout>
+					<Events>
+					</Events>
+					<Properties>
+						<Property name="text" type="String" value="Help"/>
+					</Properties>
+					<SubComponents>
+						<Component class="org.eclipse.swt.widgets.Menu" name="menu4" style="0">
+							<Constraints>
+								<LayoutConstraint/>
+							</Constraints>
+							<Events>
+							</Events>
+							<Properties>
+							</Properties>
+							<SubComponents>
+								<Component class="org.eclipse.swt.widgets.MenuItem" name="menuItem2" style="0">
+									<Constraints>
+										<LayoutConstraint/>
+									</Constraints>
+									<Layout class="Absolute">
+									</Layout>
+									<Events>
+									</Events>
+									<Properties>
+										<Property name="text" type="String" value="Help"/>
+									</Properties>
+								</Component>
+								<Component class="org.eclipse.swt.widgets.MenuItem" name="menuItem3" style="0">
+									<Constraints>
+										<LayoutConstraint/>
+									</Constraints>
+									<Layout class="Absolute">
+									</Layout>
+									<Events>
+									</Events>
+									<Properties>
+										<Property name="text" type="String" value="Help"/>
+									</Properties>
+								</Component>
+							</SubComponents>
+						</Component>
+					</SubComponents>
+				</Component>
+			</SubComponents>
+		</Component></ExtraComponents>
+<NonVisualComponents>
+		<Component class="java.lang.Object" name="object1" style="0">
+			<Constraints>
+				<LayoutConstraint/>
+			</Constraints>
+			<Properties>
+			</Properties>
+		</Component></NonVisualComponents>
+	<Component class="org.eclipse.swt.widgets.Composite" name="GregMainApp" style="0">
+		<Constraints>
+			<LayoutConstraint/>
+		</Constraints>
+		<Layout class="Grid">
+			<Property name="numColumns" type="int" value="1"/>
+			<Property name="makeColumnsEqualWidth" type="boolean" value="true"/>
+			<Property name="marginWidth" type="int" value="5"/>
+			<Property name="marginHeight" type="int" value="5"/>
+			<Property name="marginLeft" type="int" value="0"/>
+			<Property name="marginTop" type="int" value="0"/>
+			<Property name="marginRight" type="int" value="0"/>
+			<Property name="marginBottom" type="int" value="0"/>
+			<Property name="horizontalSpacing" type="int" value="5"/>
+			<Property name="verticalSpacing" type="int" value="5"/>
+		</Layout>
+		<Events>
+		</Events>
+		<Properties>
+			<Property name="size" type="Dimension">
+				<Dimension value="[400, 270]"/>
+			</Property>
+			<Property name="bounds" type="Rectangle">
+				<Rectangle value="[0, 0, 400, 270]"/>
+			</Property>
+		</Properties>
+	</Component>
+</Form>
