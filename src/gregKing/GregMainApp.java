@@ -198,6 +198,7 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 					| SWT.NO_RADIO_GROUP
 					| SWT.EMBEDDED
 					| SWT.H_SCROLL);
+				
 				{
 					cTabItem1 = new CTabItem(cTabFolderMain, SWT.NONE);
 					cTabItem1.setText("Main");
@@ -925,10 +926,9 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
         try{
         	File destination = new File("SmoothieData.smoothiedb");
             System.out.println(destination);
-           
+           FileOutputStream fos = new FileOutputStream( destination );
         
-            s = new ObjectOutputStream(
-	            new FileOutputStream( destination ) );
+            s = new ObjectOutputStream(fos);
 	            
 	        //s.writeObject("Witre object string");
 //			s.writeObject(new Account(urlt.getText(), (String) a1337box.getSelectedItem(),
@@ -962,11 +962,10 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
   	{
   		try
   		{
-  			
+  			File f =new File("SmoothieData.smoothiedb");
   		 			
-  			
-  			ObjectOutputStream out1 = new ObjectOutputStream(
-                           new FileOutputStream(new File("SmoothieData.smoothiedb")));
+  			FileOutputStream fos=new FileOutputStream(f);
+  			ObjectOutputStream out1 = new ObjectOutputStream(fos);
           	out1.writeObject( db);
           	out1.flush();
           	out1.close();
@@ -987,8 +986,10 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
   	{
  		try
   		{  			
-  			ObjectInputStream in1 = new ObjectInputStream(
-                           new FileInputStream(new File("SmoothieData.smoothiedb")));
+  			File f = new File("SmoothieData.smoothiedb");
+  			FileInputStream fs = new FileInputStream(f);
+ 			ObjectInputStream in1 = new ObjectInputStream(fs);
+ 			
                            
             db =(SmoothieDataBase)in1.readObject();
 			              
@@ -1025,11 +1026,13 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 			File target = new File("SmoothieData.smoothiedb");
          	
   			FileInputStream in = new FileInputStream(target);
+  			
 			ObjectInputStream r = new ObjectInputStream(in);
 			//String today = (String)s.readObject();
 			//Account account1 = new Account();
 			this.db =(SmoothieDataBase)r.readObject();
 			//this.db = new SmoothieDataBase();
+			r.close();
 			in.close();
 			r.close();
 		}
@@ -1234,10 +1237,10 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 	public static void showGUI(){
 		try {
 			Display display = Display.getDefault();
-			//display_IL.getActiveShell().setSize(952, 543);
+			//display.getActiveShell().setSize(460, 500);
 			Shell shell = new Shell(display);
 			@SuppressWarnings("unused")
-			GregMainApp inst = new GregMainApp(shell, 1);
+			GregMainApp inst = new GregMainApp(shell, SWT.ON_TOP | SWT.Activate);
 						
 			shell.setLayout(new org.eclipse.swt.layout.FillLayout());
 			@SuppressWarnings("unused")
@@ -1252,7 +1255,15 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 			
 			shell.setBackground(SWTResourceManager.getColor(255, 128, 64));
 			shell.forceActive();
+			
+			shell.setEnabled(true);
+			shell.setFocus();
+			shell.setVisible(true);
 			shell.open();
+			shell.forceActive();
+			shell.setEnabled(true);
+			shell.setFocus();
+			shell.setVisible(true);
 			while (!shell.isDisposed()) {
 				if (!display.readAndDispatch())
 					display.sleep();
