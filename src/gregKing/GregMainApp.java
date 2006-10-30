@@ -1161,7 +1161,7 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 	  
 	/** Add your pre-init code in here 	*/
 	public void preInitGUI(){
-		System.setSecurityManager(null);
+		//System.setSecurityManager(null);
 		df = new DecimalFormat("¤#,##0.00");
         //setSize(600, 670);
        // dim = new Dimension(500,700);
