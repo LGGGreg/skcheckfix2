@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?><Form builder="jigloo" ide="eclipse" laf="com.sun.java.swing.plaf.windows.WindowsLookAndFeel" style="Swing" version="2.7.2">
+<ExtraComponents>
+		<Component class="javax.swing.JMenu" name="menu1">
+			<Constraints>
+				<LayoutConstraint/>
+			</Constraints>
+			<Events>
+			</Events>
+			<Properties>
+				<Property name="text" type="String" value="Test Here"/>
+				<Property name="preferredSize" type="Dimension">
+					<Dimension value="[379, 31]"/>
+				</Property>
+				<Property name="bounds" type="Rectangle">
+					<Rectangle value="[20, 20, 379, 31]"/>
+				</Property>
+			</Properties>
+			<SubComponents>
+				<Component class="javax.swing.JMenu" name="fileMenuItem">
+					<Constraints>
+						<Constraint tabTitle="File"/>
+						<LayoutConstraint/>
+					</Constraints>
+					<Events>
+					</Events>
+					<Properties>
+						<Property name="text" type="String" value="File"/>
+					</Properties>
+					<SubComponents>
+						<Component class="javax.swing.JMenu" name="openFileMenuItem">
+							<Constraints>
+								<Constraint tabTitle="Open"/>
+								<LayoutConstraint/>
+							</Constraints>
+							<Events>
+							</Events>
+							<Properties>
+								<Property name="text" type="String" value="Open"/>
+							</Properties>
+						</Component>
+						<Component class="javax.swing.JMenu" name="newFileMenuItem">
+							<Constraints>
+								<Constraint tabTitle="New"/>
+								<LayoutConstraint/>
+							</Constraints>
+							<Events>
+							</Events>
+							<Properties>
+								<Property name="text" type="String" value="New"/>
+							</Properties>
+						</Component>
+						<Component class="javax.swing.JMenu" name="saveFileMenuItem">
+							<Constraints>
+								<Constraint tabTitle="Save"/>
+								<LayoutConstraint/>
+							</Constraints>
+							<Events>
+							</Events>
+							<Properties>
+								<Property name="text" type="String" value="Save"/>
+							</Properties>
+						</Component>
+						<Component class="javax.swing.JMenu" name="closeFileMenuItem">
+							<Constraints>
+								<Constraint tabTitle="Close"/>
+								<LayoutConstraint/>
+							</Constraints>
+							<Events>
+							</Events>
+							<Properties>
+								<Property name="text" type="String" value="Close"/>
+							</Properties>
+						</Component>
+						<Component class="javax.swing.JMenu" name="exitMenuItem">
+							<Constraints>
+								<Constraint tabTitle="Exit"/>
+								<LayoutConstraint/>
+							</Constraints>
+							<Events>
+							</Events>
+							<Properties>
+								<Property name="text" type="String" value="Exit"/>
+							</Properties>
+						</Component>
+					</SubComponents>
+				</Component>
+				<Component class="javax.swing.JMenu" name="helpMenuItem">
+					<Constraints>
+						<Constraint tabTitle="Help"/>
+						<LayoutConstraint/>
+					</Constraints>
+					<Events>
+					</Events>
+					<Properties>
+						<Property name="text" type="String" value="Help"/>
+					</Properties>
+					<SubComponents>
+						<Component class="javax.swing.JMenu" name="contentsMenuItem">
+							<Constraints>
+								<Constraint tabTitle="Contents"/>
+								<LayoutConstraint/>
+							</Constraints>
+							<Events>
+							</Events>
+							<Properties>
+								<Property name="text" type="String" value="Contents"/>
+							</Properties>
+						</Component>
+						<Component class="javax.swing.JMenu" name="aboutMenuItem">
+							<Constraints>
+								<Constraint tabTitle="About"/>
+								<LayoutConstraint/>
+							</Constraints>
+							<Events>
+							</Events>
+							<Properties>
+								<Property name="text" type="String" value="About"/>
+							</Properties>
+						</Component>
+					</SubComponents>
+				</Component>
+			</SubComponents>
+		</Component></ExtraComponents>
+<NonVisualComponents>
+		<Component class="java.lang.Object" name="object1">
+			<Constraints>
+				<LayoutConstraint/>
+			</Constraints>
+			<Properties>
+			</Properties>
+		</Component></NonVisualComponents>
+	<Component class="javax.swing.JFrame" name="GregMain">
+		<Constraints>
+			<LayoutConstraint/>
+		</Constraints>
+		<Layout class="Grid">
+			<Property name="hgap" type="int" value="0"/>
+			<Property name="vgap" type="int" value="0"/>
+			<Property name="columns" type="int" value="1"/>
+			<Property name="rows" type="int" value="0"/>
+		</Layout>
+		<Events>
+		</Events>
+		<Properties>
+			<Property name="size" type="Dimension">
+				<Dimension value="[379, 260]"/>
+			</Property>
+			<Property name="background" type="Color">
+				<Color blue="80" green="80" red="80"/>
+			</Property>
+			<Property name="bounds" type="Rectangle">
+				<Rectangle value="[0, 0, 379, 260]"/>
+			</Property>
+			<Property name="preferredSize" type="Dimension">
+				<Dimension value="[379, 234]"/>
+			</Property>
+		</Properties>
+	</Component>
+</Form>
