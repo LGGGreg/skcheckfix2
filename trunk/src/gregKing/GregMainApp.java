@@ -1,6 +1,4 @@
 package gregKing;
-
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -209,9 +207,11 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
     
     /** The decimal formatf. */
     private DecimalFormat df;
-   // private static Dimension dim;
+   
     /** The days ordered. */
     private java.lang.String[] daysOrdered;
+    
+    private MessageBox messageBox;
    
    
     
@@ -244,20 +244,19 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 			FillLayout thisLayout = new FillLayout(
 				org.eclipse.swt.SWT.HORIZONTAL);
 			this.setLayout(thisLayout);
-			this.setSize(457, 419);
+			this.setSize(378, 387);
 			{
 				cTabFolderMain = new CTabFolder(this, SWT.TOP
 					| SWT.NO_RADIO_GROUP
 					| SWT.EMBEDDED
 					| SWT.H_SCROLL);
 				cTabFolderMain.setSimple(false);
-				Color[] colors = new Color[]{SWTResourceManager.getColor(0,0,250),
-
-						SWTResourceManager.getColor(0,250,0),
-
-						SWTResourceManager.getColor(250,0,0)};
-						 int[] percents = new int[] {50, 100};
-				cTabFolderMain.setSelectionBackground(colors,percents); 
+				Color[] colors = new Color[]{SWTResourceManager.getColor(70,0,0),
+						SWTResourceManager.getColor(250,0,0),
+						SWTResourceManager.getColor(250,100,0),
+						SWTResourceManager.getColor(250,150,0)};
+				int[] percents = new int[] {40, 80, 100};
+				cTabFolderMain.setSelectionBackground(colors,percents,true); 
 				cTabFolderMain.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
 				
 				{
@@ -516,6 +515,13 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 									button1LData.horizontalAlignment = GridData.FILL;
 									button1LData.grabExcessVerticalSpace = true;
 									button1LData.grabExcessHorizontalSpace = true;
+									
+									Display display2 = Display.getDefault();
+									Shell shell = new Shell(display2);
+									messageBox = new MessageBox(shell, SWT.ICON_ERROR |
+				        				SWT.OK);
+									messageBox.setText("Save Button Error");
+									
 									button1.setLayoutData(button1LData);
 									button1.setText("Save Data");
 									button1
@@ -524,32 +530,40 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 												System.out
 													.println("button1.mouseUp, event="
 														+ evt);
-												//TODO add your code for button1.mouseUp
-												if(list1.getFocusIndex()>=0 && cemployeeBox1.getSelectionIndex() >=0 && cemployeeBox2.getSelectionIndex()>=0)
-								                	{
+												
+												
 										
-								                		//System.out.println(""+listBox.getSelectedIndex());
-								                		try 
-								                		{
-															dayArray[list1.getSelectionIndex()].setEmployee(1, db.getEmployee(cemployeeBox1.getSelectionIndex()));
-															dayArray[list1.getSelectionIndex()].setEmployee(2, db.getEmployee(cemployeeBox2.getSelectionIndex()));
-															dayArray[list1.getSelectionIndex()].setdoff(Double.valueOf(text1.getText()).doubleValue());
-															progressBar1.setSelection(getProgress());
-															group44.setBackground(composite1.getBackground());
-														} catch (NumberFormatException e1) 
+														
+													//System.out.println(""+listBox.getSelectedIndex());
+								               		try 
+								               		{
+														dayArray[list1.getSelectionIndex()].setEmployee(1, db.getEmployee(cemployeeBox1.getSelectionIndex()));
+														dayArray[list1.getSelectionIndex()].setEmployee(2, db.getEmployee(cemployeeBox2.getSelectionIndex()));
+														progressBar1.setSelection(getProgress());
+														group44.setBackground(composite1.getBackground());
+														try 
 														{
-															//TODO Put in a message boxJOptionPane.showMessageDialog(hpane, "Error, you must make sure the amount over is a number, do not include \"$\"s");
-															
-															//e1.printStackTrace();
-														}
-								                		//JOptionPane.showMessageDialog(rightTop, "arg1");
-								                		
-								                	}
-								                	else
-								                	{
-								                		//TODO JOptionPane.showMessageDialog(rightTop, "Please Make Sure you have a day and two employees selected");
-								                		//JOptionPane.showMessageDialog("Please Make Sure you have a day and two employees selected");
-								                	}
+															dayArray[list1.getSelectionIndex()].setdoff(Double.valueOf(text1.getText()).doubleValue());
+														} catch (Exception e) {
+															// TODO Auto-generated catch block
+															e.printStackTrace();
+															messageBox.setMessage("Error, you must make sure the amount over is a number, do not include \"$\"s");
+													        int response = messageBox.open();
+													        System.out.println("Response was " + response);
+									                		
+									                		//TODO JOptionPane.showMessageDialog(rightTop, "Please Make Sure you have a day and two employees selected");
+									                		//JOptionPane.showMessageDialog("Please Make Sure you have a day and two employees selected");
+									                	}
+													} catch (Exception e1) 
+													{
+														//TODO Put in a message boxJOptionPane.showMessageDialog(hpane, "Error, you must make sure the amount over is a number, do not include \"$\"s");
+														messageBox.setMessage("Please Make Sure you have a day and two employees selected");
+											        	int response = messageBox.open();
+											        	System.out.println("Response was " + response);
+														//e1.printStackTrace();
+													}
+								                	//JOptionPane.showMessageDialog(rightTop, "arg1");
+													
 											}
 										});
 								}
@@ -574,8 +588,13 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 						{
 							group2 = new Group(composite1, SWT.H_SCROLL);
 							GridLayout group2Layout = new GridLayout();
-							group2Layout.makeColumnsEqualWidth = true;
 							group2Layout.numColumns = 2;
+							group2Layout.makeColumnsEqualWidth = true;
+							group2Layout.horizontalSpacing = 2;
+							group2Layout.marginBottom = 2;
+							group2Layout.marginLeft = 2;
+							group2Layout.marginRight = 2;
+							group2Layout.marginTop = 2;
 							group2.setLayout(group2Layout);
 							group2.setText("Employee DataBase");
 							{
@@ -753,6 +772,7 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 								cLabel2.setImage(SWTResourceManager.getImage("gregKing/buller.gif"));
 								GridData cLabel2LData = new GridData();
 								cLabel2LData.grabExcessHorizontalSpace = true;
+								cLabel2LData.grabExcessVerticalSpace = true;
 								cLabel2.setLayoutData(cLabel2LData);
 								cLabel2.setToolTipText("The employees name");
 							}
@@ -764,13 +784,15 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 									| SWT.BORDER);
 								cempName.setText("cempName");
 								GridData text1LData = new GridData();
-								text1LData.horizontalAlignment = GridData.FILL;
 								text1LData.verticalAlignment = GridData.FILL;
+								text1LData.grabExcessVerticalSpace = true;
 								text1LData.grabExcessHorizontalSpace = true;
+								text1LData.horizontalAlignment = GridData.FILL;
 								cempName.setLayoutData(text1LData);
 								cempName.setFont(SWTResourceManager.getFont("Tempus Sans ITC",14,0,false,false));
 								cempName.setOrientation(SWT.VERTICAL);
 								cempName.setToolTipText("The employees name");
+								cempName.setSize(91, 20);
 							}
 							{
 								cLabel8 = new CLabel(group2, SWT.SHADOW_IN
@@ -783,6 +805,8 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 								cLabel8.setImage(SWTResourceManager
 									.getImage("gregKing/buller.gif"));
 								GridData cLabel8LData = new GridData();
+								cLabel8LData.grabExcessVerticalSpace = true;
+								cLabel8LData.grabExcessHorizontalSpace = true;
 								cLabel8.setLayoutData(cLabel8LData);
 								cLabel8.setAlignment(SWT.RIGHT);
 								cLabel8
@@ -798,11 +822,13 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 								cempEr.setText("cempName");
 								cempEr.setOrientation(SWT.VERTICAL);
 								GridData text2LData = new GridData();
-								text2LData.horizontalAlignment = GridData.FILL;
 								text2LData.verticalAlignment = GridData.FILL;
+								text2LData.grabExcessVerticalSpace = true;
 								text2LData.grabExcessHorizontalSpace = true;
+								text2LData.horizontalAlignment = GridData.FILL;
 								cempEr.setLayoutData(text2LData);
 								cempEr.setToolTipText("The person who pays this employee");
+								cempEr.setSize(91, 20);
 							}
 							{
 								cLabel7 = new CLabel(group2, SWT.SHADOW_IN
@@ -815,6 +841,8 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 								cLabel7.setImage(SWTResourceManager
 									.getImage("gregKing/buller.gif"));
 								GridData cLabel7LData = new GridData();
+								cLabel7LData.grabExcessVerticalSpace = true;
+								cLabel7LData.grabExcessHorizontalSpace = true;
 								cLabel7.setLayoutData(cLabel7LData);
 								cLabel7.setToolTipText("The employees sex");
 							}
@@ -828,11 +856,13 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 								cempSex.setText("cempName");
 								cempSex.setOrientation(SWT.VERTICAL);
 								GridData text3LData = new GridData();
-								text3LData.horizontalAlignment = GridData.FILL;
 								text3LData.verticalAlignment = GridData.FILL;
+								text3LData.grabExcessVerticalSpace = true;
 								text3LData.grabExcessHorizontalSpace = true;
+								text3LData.horizontalAlignment = GridData.FILL;
 								cempSex.setLayoutData(text3LData);
 								cempSex.setToolTipText("The employee's sex");
+								cempSex.setSize(91, 20);
 							}
 							{
 								cLabel5 = new CLabel(group2, SWT.SHADOW_IN
@@ -845,6 +875,8 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 								cLabel5.setImage(SWTResourceManager
 									.getImage("gregKing/buller.gif"));
 								GridData cLabel5LData = new GridData();
+								cLabel5LData.grabExcessVerticalSpace = true;
+								cLabel5LData.grabExcessHorizontalSpace = true;
 								cLabel5.setLayoutData(cLabel5LData);
 								cLabel5
 									.setToolTipText("Anjy notes you have for the employee");
@@ -859,11 +891,13 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 								cempNotes.setText("cempName");
 								cempNotes.setOrientation(SWT.VERTICAL);
 								GridData text4LData = new GridData();
-								text4LData.horizontalAlignment = GridData.FILL;
 								text4LData.verticalAlignment = GridData.FILL;
+								text4LData.grabExcessVerticalSpace = true;
 								text4LData.grabExcessHorizontalSpace = true;
+								text4LData.horizontalAlignment = GridData.FILL;
 								cempNotes.setLayoutData(text4LData);
 								cempNotes.setToolTipText("Notes you may have on the employee");
+								cempNotes.setSize(91, 20);
 							}
 							{
 								cLabel6 = new CLabel(group2, SWT.SHADOW_IN
@@ -876,6 +910,8 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 								cLabel6.setImage(SWTResourceManager
 									.getImage("gregKing/buller.gif"));
 								GridData cLabel6LData = new GridData();
+								cLabel6LData.grabExcessVerticalSpace = true;
+								cLabel6LData.grabExcessHorizontalSpace = true;
 								cLabel6.setLayoutData(cLabel6LData);
 								cLabel6
 									.setToolTipText("The employees base salary after taxes");
@@ -890,11 +926,13 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 								cempBsal.setText("cempName");
 								cempBsal.setOrientation(SWT.VERTICAL);
 								GridData text5LData = new GridData();
-								text5LData.horizontalAlignment = GridData.FILL;
 								text5LData.verticalAlignment = GridData.FILL;
+								text5LData.grabExcessVerticalSpace = true;
 								text5LData.grabExcessHorizontalSpace = true;
+								text5LData.horizontalAlignment = GridData.FILL;
 								cempBsal.setLayoutData(text5LData);
 								cempBsal.setToolTipText("The employees check after taxes");
+								cempBsal.setSize(91, 20);
 							}
 							{
 								cLabel4 = new CLabel(group2, SWT.SHADOW_IN
@@ -907,6 +945,8 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 								cLabel4.setImage(SWTResourceManager
 									.getImage("gregKing/buller.gif"));
 								GridData cLabel4LData = new GridData();
+								cLabel4LData.grabExcessVerticalSpace = true;
+								cLabel4LData.grabExcessHorizontalSpace = true;
 								cLabel4.setLayoutData(cLabel4LData);
 								cLabel4
 									.setToolTipText("Adjustments made to the base salary");
@@ -921,12 +961,14 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 								cempAsal.setText("cempName");
 								cempAsal.setOrientation(SWT.VERTICAL);
 								GridData text6LData = new GridData();
-								text6LData.horizontalAlignment = GridData.FILL;
 								text6LData.verticalAlignment = GridData.FILL;
+								text6LData.grabExcessVerticalSpace = true;
 								text6LData.grabExcessHorizontalSpace = true;
+								text6LData.horizontalAlignment = GridData.FILL;
 								cempAsal.setLayoutData(text6LData);
 								cempAsal.setEditable(false);
 								cempAsal.setToolTipText("Adjustments that need to be made because of days where the register was off.");
+								cempAsal.setSize(91, 20);
 							}
 							{
 								cLabel3 = new CLabel(group2, SWT.SHADOW_IN
@@ -939,6 +981,8 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 								cLabel3.setImage(SWTResourceManager
 									.getImage("gregKing/buller.gif"));
 								GridData cLabel3LData = new GridData();
+								cLabel3LData.grabExcessVerticalSpace = true;
+								cLabel3LData.grabExcessHorizontalSpace = true;
 								cLabel3.setLayoutData(cLabel3LData);
 								cLabel3
 									.setToolTipText("The employee's final salary");
@@ -953,12 +997,14 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 								cempTsal.setText("cempName");
 								cempTsal.setOrientation(SWT.VERTICAL);
 								GridData text7LData = new GridData();
-								text7LData.horizontalAlignment = GridData.FILL;
 								text7LData.verticalAlignment = GridData.FILL;
+								text7LData.grabExcessVerticalSpace = true;
 								text7LData.grabExcessHorizontalSpace = true;
+								text7LData.horizontalAlignment = GridData.FILL;
 								cempTsal.setLayoutData(text7LData);
 								cempTsal.setEditable(false);
 								cempTsal.setToolTipText("The employee's final salary after all adjustments have been made");
+								cempTsal.setSize(91, 20);
 							}
 							{
 								saveempb = new Button(group2, SWT.PUSH
@@ -1011,6 +1057,7 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 							outputStyled = new StyledText(group1, SWT.MULTI
 								| SWT.FULL_SELECTION
 								| SWT.READ_ONLY
+								| SWT.WRAP
 								| SWT.V_SCROLL);
 							GridData outputStyledLData = new GridData();
 							outputStyledLData.grabExcessVerticalSpace = true;
@@ -1019,6 +1066,10 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 							outputStyledLData.grabExcessHorizontalSpace = true;
 							outputStyled.setLayoutData(outputStyledLData);
 							outputStyled.setText("Basic Text");
+							outputStyled.setBackgroundImage(SWTResourceManager.getImage("gregKing/smoothie.gif"));
+							outputStyled.setWordWrap(true);
+							outputStyled.setFont(SWTResourceManager.getFont("Tempus Sans ITC", 10, 0, false, false));
+							outputStyled.setToolTipText("A nice Text dump");
 						}
 					}
 				}
