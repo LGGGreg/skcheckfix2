@@ -11,7 +11,6 @@ import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.graphics.Resource;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Widget;
@@ -27,8 +26,8 @@ import org.eclipse.swt.widgets.Widget;
  */
 public class SWTResourceManager {
 
-	private static HashMap<String, Resource> resources = new HashMap<String, Resource>();
-	private static Vector<Widget> users = new Vector<Widget>();
+	private static HashMap resources = new HashMap();
+	private static Vector users = new Vector();
 	private static SWTResourceManager instance = new SWTResourceManager();
 
 	private static DisposeListener disposeListener = new DisposeListener() {
@@ -57,7 +56,7 @@ public class SWTResourceManager {
 	}
 
 	public static void dispose() {
-		Iterator<String> it = resources.keySet().iterator();
+		Iterator it = resources.keySet().iterator();
 		while (it.hasNext()) {
 			Object resource = resources.get(it.next());
 			if (resource instanceof Font)
@@ -76,7 +75,6 @@ public class SWTResourceManager {
 		return getFont(name, size, style, false, false);
 	}
 
-	
 	public static Font getFont(String name, int size, int style, boolean strikeout, boolean underline) {
 		String fontName = name + "|" + size + "|" + style + "|" + strikeout + "|" + underline;
 		if (resources.containsKey(fontName))
