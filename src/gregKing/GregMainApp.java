@@ -1,10 +1,6 @@
 package gregKing;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Frame;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -14,29 +10,21 @@ import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.text.DecimalFormat;
 
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JSplitPane;
-import javax.swing.JTextField;
-import javax.swing.UIManager;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-
 
 import org.eclipse.swt.widgets.MessageBox;
+import org.eclipse.swt.widgets.ProgressBar;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.List;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.layout.FormData;
+import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.RowData;
@@ -45,10 +33,10 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.awt.SWT_AWT;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.CTabItem;
+import org.eclipse.swt.custom.SashForm;
 import org.eclipse.swt.custom.StyleRange;
 import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.events.FocusAdapter;
@@ -58,13 +46,16 @@ import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
+/**
+ * The Class GregMainApp.
+ */
 public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 
 	{
 		try {
 	         //UIManager.setLookAndFeel("org.fife.plaf.Office2003.Office2003LookAndFeel");
 	         //UIManager.setLookAndFeel("org.fife.plaf.OfficeXP.OfficeXPLookAndFeel");
-	         UIManager.setLookAndFeel("org.fife.plaf.VisualStudio2005.VisualStudio2005LookAndFeel");
+	         //UIManager.setLookAndFeel("org.fife.plaf.VisualStudio2005.VisualStudio2005LookAndFeel");
 	      } catch (Exception e) {
 	         System.err.println("Oops!  Something went wrong!");
 	      }
@@ -77,39 +68,118 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 		SWTResourceManager.registerResourceUser(this);
 	}
 
+	/** The c label8. */
 	private CLabel cLabel8;
+	
+	/** The cemp notes. */
 	private Text cempNotes;
-	private Composite awtswt;
+
+	/** The saveempb. */
 	private Button saveempb;
+	
+	/** The cemp tsal. */
 	private Text cempTsal;
+	private Label label1;
+	private CLabel cLabel11;
+	private Text text1;
+	private ProgressBar progressBar1;
+	private Group group5;
+	private Group group4;
+	private List list1;
+	private Button button1;
+	private Group group44;
+	private CLabel cLabel10;
+	private CLabel cLabel9;
+	private Combo cemployeeBox2;
+	private Combo cemployeeBox1;
+	private SashForm sashForm2;
+	private SashForm sashForm1;
+
+	/** The group3. */
 	private Group group3;
+	
+	/** The group2. */
 	private Group group2;
+	
+	/** The output styled. */
 	private StyledText outputStyled;
+	
+	/** The group1. */
 	private Group group1;
+	
+	/** The prove tab. */
 	private CTabItem proveTab;
+	
+	/** The cemp asal. */
 	private Text cempAsal;
+	
+	/** The cemp bsal. */
 	private Text cempBsal;
+	
+	/** The cemp sex. */
 	private Text cempSex;
+	
+	/** The cemp er. */
 	private Text cempEr;
+	
+	/** The c label7. */
 	private CLabel cLabel7;
+	
+	/** The c label6. */
 	private CLabel cLabel6;
+	
+	/** The c label5. */
 	private CLabel cLabel5;
+	
+	/** The c label4. */
 	private CLabel cLabel4;
+	
+	/** The c label3. */
 	private CLabel cLabel3;
+	
+	/** The cleftb. */
 	private Button cleftb;
+	
+	/** The cremempb. */
 	private Button cremempb;
+	
+	/** The caddempb. */
 	private Button caddempb;
+	
+	/** The composite2. */
 	private Composite composite2;
+	
+	/** The cemp number. */
 	private StyledText cempNumber;
+	
+	/** The crightb. */
 	private Button crightb;
+	
+	/** The button box. */
 	private Composite buttonBox;
+	
+	/** The composite1. */
 	private Composite composite1;
+	
+	/** The cemp name. */
 	private Text cempName;
+	
+	/** The combo1. */
 	private Combo combo1;
+	
+	/** The c label2. */
 	private CLabel cLabel2;
+	
+	/** The c label1. */
 	private CLabel cLabel1;
+	
+	/** The Ctab item2. */
 	private CTabItem CtabItem2;
+	
+	/** The c tab item1. */
 	private CTabItem cTabItem1;
+	
+	/** The c tab folder main. */
 	private CTabFolder cTabFolderMain;
 	
 	/** The database for saving info. */
@@ -121,38 +191,13 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
     /** The tabbed pane. */
     //private JTabbedPane tabber;
     
-    /** One of the freaking JPanels. */
-    private JPanel leftPanel,rightBottom,rightTop;
+ 
     
-    private Frame page1;
-    
-    /** One of the many labels. */
-    private JLabel emp1Label, emp2Label, adjLabel;
-    
-    /** The looks. */
-    //private UIManager.LookAndFeelInfo looks[];
-    
-    /** The splitpanes. */
-    private JSplitPane hpane, vpane;
-    
-    /** The combo boxes box. */
-    private JComboBox employeeBox1, employeeBox2;
-    
-    /** The jbuttons. */
-    private JButton saveday;
-    
-    /** The list box. */
-    private JList listBox;
-    
-    /** The spane. */
-    private JScrollPane spane;
     
     /** The s. */
     private ObjectOutputStream s;
     //private JTextPane textPane;
-    /** The emp number. */
-    private JTextField adjustment;
-        
+   
     /** The ihandler. */
     //private ItemListener ihandler;
     
@@ -176,14 +221,20 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
     private int viewEmployeeNumber;
     //private GregMainApp inst;
 
-	public GregMainApp(Composite parent, int style) {
+	/**
+     * The Constructor.
+     * 
+     * @param style the style
+     * @param parent the parent
+     */
+    public GregMainApp(Composite parent, int style) {
 		super(parent, style);
 		initGUI();
 	}
+	
 	/**
-	* Initializes the GUI.
-	* 
-	*/
+	 * Initializes the GUI.
+	 */
 	public void initGUI(){
 		try {
 			preInitGUI();
@@ -193,11 +244,21 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 			FillLayout thisLayout = new FillLayout(
 				org.eclipse.swt.SWT.HORIZONTAL);
 			this.setLayout(thisLayout);
+			this.setSize(457, 419);
 			{
 				cTabFolderMain = new CTabFolder(this, SWT.TOP
 					| SWT.NO_RADIO_GROUP
 					| SWT.EMBEDDED
 					| SWT.H_SCROLL);
+				cTabFolderMain.setSimple(false);
+				Color[] colors = new Color[]{SWTResourceManager.getColor(0,0,250),
+
+						SWTResourceManager.getColor(0,250,0),
+
+						SWTResourceManager.getColor(250,0,0)};
+						 int[] percents = new int[] {50, 100};
+				cTabFolderMain.setSelectionBackground(colors,percents); 
+				cTabFolderMain.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
 				
 				{
 					cTabItem1 = new CTabItem(cTabFolderMain, SWT.NONE);
@@ -211,12 +272,288 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 							org.eclipse.swt.SWT.HORIZONTAL);
 						group3.setLayout(group3Layout);
 						group3.setText("Adjustment Editing");
+						group3.setToolTipText("Allows you to make adjustments to the days");
 						{
-							awtswt = new Composite(group3, SWT.EMBEDDED
-								| SWT.BORDER);
-							GridLayout awtswtLayout = new GridLayout();
-							awtswtLayout.makeColumnsEqualWidth = true;
-							awtswt.setLayout(awtswtLayout);
+							sashForm1 = new SashForm(group3, SWT.VERTICAL
+								| SWT.V_SCROLL);
+							RowLayout sashForm1Layout = new RowLayout(
+								org.eclipse.swt.SWT.HORIZONTAL);
+							sashForm1.setLayout(sashForm1Layout);
+							sashForm1.setSize(60, 30);
+							{
+								sashForm2 = new SashForm(
+									sashForm1,
+									SWT.HORIZONTAL | SWT.H_SCROLL);
+								FormLayout sashForm2Layout = new FormLayout();
+								sashForm2.setLayout(sashForm2Layout);
+								sashForm2.setBounds(86, 56, 423, 369);
+								{
+									group4 = new Group(sashForm2, SWT.NONE);
+									FillLayout group4Layout = new FillLayout(
+										org.eclipse.swt.SWT.HORIZONTAL);
+									group4Layout.marginHeight = 2;
+									group4Layout.marginWidth = 2;
+									group4Layout.spacing = 2;
+									group4.setLayout(group4Layout);
+									FormData group4LData = new FormData();
+									group4.setLayoutData(group4LData);
+									group4.setText("Bi-week Days");
+									group4.setToolTipText("The Bi week days");
+									{
+										list1 = new List(group4, SWT.H_SCROLL
+											| SWT.V_SCROLL
+											| SWT.BORDER);
+										
+										list1.setItems(dayNames);
+										list1.setFont(SWTResourceManager.getFont("Tempus Sans ITC", 9, 0, false, false));
+										list1.setToolTipText("The Days of the 2 week pay period");
+										list1
+											.addSelectionListener(new SelectionAdapter() {
+												public void widgetSelected(
+													SelectionEvent evt) {
+													System.out
+														.println("list1.widgetSelected, event="
+															+ evt);
+													//TODO add your code for list1.widgetSelected
+													try {
+
+														cemployeeBox1
+															.select(dayArray[list1
+																.getSelectionIndex()]
+																.getEmployee(1)
+																.getEmpID());
+														cemployeeBox2
+															.select(dayArray[list1
+																.getSelectionIndex()]
+																.getEmployee(2)
+																.getEmpID());
+														text1
+															.setText(df
+																.format(dayArray[list1
+																	.getSelectionIndex()]
+																	.getdoff()));
+														text1
+															.setText((dayArray[list1
+																.getSelectionIndex()]
+																.getdoff())
+																+ "");
+														group44
+															.setBackground(composite1
+																.getBackground());
+													} catch (Exception exeption) {
+
+														group44
+															.setBackground(SWTResourceManager
+																.getColor(
+																	232,
+																	47,
+																	0));
+														System.err
+															.println("This didnt work!!!!");
+														text1.setText("0.00");
+													}
+												}
+											});
+									}
+								}
+								{
+									group44 = new Group(
+										sashForm2,
+										SWT.NONE);
+									GridLayout employyegrupLayout = new GridLayout();
+									employyegrupLayout.horizontalSpacing = 2;
+									employyegrupLayout.marginHeight = 2;
+									employyegrupLayout.marginBottom = 2;
+									employyegrupLayout.marginLeft = 2;
+									employyegrupLayout.marginRight = 2;
+									employyegrupLayout.marginTop = 2;
+									employyegrupLayout.marginWidth = 2;
+									employyegrupLayout.numColumns = 2;
+									employyegrupLayout.verticalSpacing = 2;
+									employyegrupLayout.makeColumnsEqualWidth = true;
+									group44.setLayout(employyegrupLayout);
+									FormData employyegrupLData = new FormData();
+									group44.setLayoutData(employyegrupLData);
+									group44.setText("Employees");
+									group44.setToolTipText("Contains the combo boxes to select employees");
+									
+									{
+										cLabel9 = new CLabel(
+											group44,
+											SWT.CENTER
+												| SWT.EMBEDDED
+												| SWT.V_SCROLL);
+										GridData cLabel9LData = new GridData();
+										cLabel9LData.horizontalAlignment = GridData.FILL;
+										cLabel9LData.grabExcessHorizontalSpace = true;
+										cLabel9LData.grabExcessVerticalSpace = true;
+										cLabel9LData.heightHint = 26;
+										cLabel9.setLayoutData(cLabel9LData);
+										cLabel9.setText("Employee 1");
+										cLabel9.setImage(SWTResourceManager.getImage("gregKing/buller.gif"));
+										cLabel9.setToolTipText("The first employee");
+									}
+									{
+										cemployeeBox1 = new Combo(
+											group44,
+											SWT.NONE);
+										GridData combo2LData = new GridData();
+										combo2LData.grabExcessHorizontalSpace = true;
+										combo2LData.horizontalAlignment = GridData.FILL;
+										combo2LData.grabExcessVerticalSpace = true;
+										cemployeeBox1.setLayoutData(combo2LData);
+										cemployeeBox1.setText("Employee #1");
+										cemployeeBox1.setItems(employeeNames);
+										cemployeeBox1.setFont(SWTResourceManager.getFont("Tempus Sans ITC", 9, 0, false, false));
+										cemployeeBox1.setVisibleItemCount((int)(db.getNumEmployees()/3));
+										cemployeeBox1.setToolTipText("The first employee that closed");
+										cemployeeBox1.select(0);
+
+									}
+									{
+										cLabel10 = new CLabel(
+											group44,
+											SWT.CENTER
+												| SWT.EMBEDDED
+												| SWT.V_SCROLL);
+										GridData cLabel10LData = new GridData();
+										cLabel10LData.grabExcessHorizontalSpace = true;
+										cLabel10LData.horizontalAlignment = GridData.FILL;
+										cLabel10LData.grabExcessVerticalSpace = true;
+										cLabel10LData.heightHint = 26;
+										cLabel10.setLayoutData(cLabel10LData);
+										cLabel10.setText("Empolyee 2");
+										cLabel10.setImage(SWTResourceManager.getImage("gregKing/buller.gif"));
+										cLabel10.setToolTipText("The second employee");
+									}
+									{
+										cemployeeBox2 = new Combo(
+											group44,
+											SWT.NONE);
+										GridData combo3LData = new GridData();
+										combo3LData.grabExcessHorizontalSpace = true;
+										combo3LData.horizontalAlignment = GridData.FILL;
+										cemployeeBox2.setLayoutData(combo3LData);
+										cemployeeBox2.setText("cemployeeBox2");
+										cemployeeBox2.setItems(employeeNames);
+										cemployeeBox2.setFont(SWTResourceManager.getFont("Tempus Sans ITC", 9, 0, false, false));
+										cemployeeBox2.setToolTipText("The second employee that closed");
+										cemployeeBox2.setVisibleItemCount((int)(db.getNumEmployees()/3));
+										cemployeeBox2.select(0);
+									}
+								}
+							}
+							{
+								group5 = new Group(sashForm1, SWT.NONE);
+								GridLayout group5Layout = new GridLayout();
+								group5Layout.numColumns = 2;
+								group5Layout.makeColumnsEqualWidth = true;
+								group5.setLayout(group5Layout);
+								group5.setText("Control");
+								group5.setToolTipText("The controls to set and save the data");
+								{
+									label1 = new Label(group5, SWT.NONE);
+									GridData label1LData = new GridData();
+									label1LData.horizontalSpan = 2;
+									label1LData.grabExcessHorizontalSpace = true;
+									label1LData.horizontalAlignment = GridData.FILL;
+									label1LData.verticalAlignment = GridData.END;
+									label1.setLayoutData(label1LData);
+									label1.setText("Progress");
+									label1.setFont(SWTResourceManager.getFont("Tempus Sans ITC", 9, 0, false, false));
+								}
+								{
+									progressBar1 = new ProgressBar(
+										group5,
+										SWT.HORIZONTAL | SWT.SMOOTH);
+											//| SWT.INDETERMINATE);
+									progressBar1.setMaximum(14);
+									GridData progressBar1LData = new GridData();
+									progressBar1LData.horizontalAlignment = GridData.FILL;
+									progressBar1LData.grabExcessHorizontalSpace = true;
+									progressBar1LData.horizontalSpan = 2;
+									progressBar1LData.grabExcessVerticalSpace = true;
+									progressBar1LData.verticalAlignment = GridData.BEGINNING;
+									progressBar1.setLayoutData(progressBar1LData);
+									progressBar1.setSelection(getProgress());
+									System.out.println("progres set to " + getProgress());
+									progressBar1.setToolTipText("How far you are till all days have been saved");
+								}
+								{
+									cLabel11 = new CLabel(group5, SWT.RIGHT
+										| SWT.H_SCROLL);
+									GridData cLabel11LData = new GridData();
+									cLabel11LData.grabExcessHorizontalSpace = true;
+									cLabel11LData.horizontalAlignment = GridData.CENTER;
+									cLabel11LData.verticalAlignment = GridData.FILL;
+									cLabel11LData.widthHint = 192;
+									cLabel11.setLayoutData(cLabel11LData);
+									cLabel11.setText("Amount Diference\n (\"+\" if over \"-\" if short)");
+									cLabel11.setFont(SWTResourceManager.getFont("Tempus Sans ITC", 10, 0, false, false));
+									cLabel11.setToolTipText("How much diference there was between the amount there was \nsupposed to be in the till, and what was in the envelope.  A positive \nnumber means the day finished over and the amount will be added \nto thier check.  A negative number means the day finished short \nand the amount will be deducted from their check.");
+								}
+								{
+									text1 = new Text(group5, SWT.SINGLE
+										| SWT.LEFT
+										| SWT.WRAP
+										| SWT.H_SCROLL
+										| SWT.BORDER);
+									text1.setFont(SWTResourceManager.getFont("Tempus Sans ITC",14,0,false,false));
+									text1.setText("0.00");
+									GridData text1LData1 = new GridData();
+									text1LData1.verticalAlignment = GridData.FILL;
+									text1LData1.horizontalAlignment = GridData.FILL;
+									text1LData1.grabExcessHorizontalSpace = true;
+									text1.setLayoutData(text1LData1);
+									text1.setOrientation(SWT.VERTICAL);
+									text1.setToolTipText("How much diference there was between the amount there was \nsuposed to be in the till, and what was in the envelope.  A positive \nnumber means the day finished over and the amount will be added \nto thier check.  A negative number means the day finished short \nand the amount will be deducted from their check.");
+								}
+								{
+									button1 = new Button(group5, SWT.PUSH
+										| SWT.CENTER);
+									GridData button1LData = new GridData();
+									button1LData.horizontalSpan = 2;
+									button1LData.horizontalAlignment = GridData.FILL;
+									button1LData.grabExcessVerticalSpace = true;
+									button1LData.grabExcessHorizontalSpace = true;
+									button1.setLayoutData(button1LData);
+									button1.setText("Save Data");
+									button1
+										.addMouseListener(new MouseAdapter() {
+											public void mouseUp(MouseEvent evt) {
+												System.out
+													.println("button1.mouseUp, event="
+														+ evt);
+												//TODO add your code for button1.mouseUp
+												if(list1.getFocusIndex()>=0 && cemployeeBox1.getSelectionIndex() >=0 && cemployeeBox2.getSelectionIndex()>=0)
+								                	{
+										
+								                		//System.out.println(""+listBox.getSelectedIndex());
+								                		try 
+								                		{
+															dayArray[list1.getSelectionIndex()].setEmployee(1, db.getEmployee(cemployeeBox1.getSelectionIndex()));
+															dayArray[list1.getSelectionIndex()].setEmployee(2, db.getEmployee(cemployeeBox2.getSelectionIndex()));
+															dayArray[list1.getSelectionIndex()].setdoff(Double.valueOf(text1.getText()).doubleValue());
+															progressBar1.setSelection(getProgress());
+															group44.setBackground(composite1.getBackground());
+														} catch (NumberFormatException e1) 
+														{
+															//TODO Put in a message boxJOptionPane.showMessageDialog(hpane, "Error, you must make sure the amount over is a number, do not include \"$\"s");
+															
+															//e1.printStackTrace();
+														}
+								                		//JOptionPane.showMessageDialog(rightTop, "arg1");
+								                		
+								                	}
+								                	else
+								                	{
+								                		//TODO JOptionPane.showMessageDialog(rightTop, "Please Make Sure you have a day and two employees selected");
+								                		//JOptionPane.showMessageDialog("Please Make Sure you have a day and two employees selected");
+								                	}
+											}
+										});
+								}
+							}
 						}
 					}
 				}
@@ -278,10 +615,12 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 						                System.out.println("set start day to "+combo1.getSelectionIndex());
 						                makeData();
 						                System.out.println("The start day is on "+db.getStartDay());
-						                
-						                listBox.setListData( dayNames );
-						                spane.revalidate();
-						                spane.repaint();
+						                list1.setItems(dayNames);
+						                list1.redraw();
+						                list1.update();
+						                //list1Box.setListData( dayNames );
+						                //spane.revalidate();
+						                //spane.repaint();
 										
 									}
 									});
@@ -743,141 +1082,151 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 				cTabFolderMain.setSelection(0);
 			}
 			this.layout();
-			rightTop = new JPanel(true);
-	    	final Color colr = rightTop.getBackground();
-	    	rightTop.setBackground(Color.RED);
-	        listBox = new JList(dayNames);
-	        listBox.setSelectedIndex(0);
-	        listBox.addListSelectionListener
-	        (
-	                new ListSelectionListener()
-	                {
-	                    public void valueChanged(ListSelectionEvent e)
-	                    {
-	                    	
-							try 
-							{
-								employeeBox1.setSelectedIndex(dayArray[listBox.getSelectedIndex()].getEmployee(1).getEmpID());
-								employeeBox2.setSelectedIndex(dayArray[listBox.getSelectedIndex()].getEmployee(2).getEmpID());
-								adjustment.setText(df.format(dayArray[listBox.getSelectedIndex()].getdoff()));
-								adjustment.setText((dayArray[listBox.getSelectedIndex()].getdoff())+"");
-								rightTop.setBackground(colr);
-							}
-							catch (Exception exeption) 
-							{
-								
-								rightTop.setBackground(Color.RED);
-								adjustment.setText("0.00");
-							}
-	                    }
-	                }
-	        );
-	        employeeBox1=new JComboBox(employeeNames);
-
-	        emp1Label = new JLabel("Employee #1");
-	        adjLabel  = new JLabel("Adjustment (posistive if over, negative if short)");
-	        adjustment = new JTextField("0.00", 5);
-	        saveday = new JButton("Save");
-	        saveday.addActionListener
-	        (
-	            new ActionListener()
-	            {
-	                public void actionPerformed(ActionEvent e)
-	                {
-	                	if(listBox.getSelectedIndex()>=0 && employeeBox1.getSelectedIndex() >=0 && employeeBox2.getSelectedIndex()>=0)
-	                	{
-	                		//System.out.println(""+listBox.getSelectedIndex());
-	                		try 
-	                		{
-								dayArray[listBox.getSelectedIndex()].setEmployee(1, db.getEmployee(employeeBox1.getSelectedIndex()));
-								dayArray[listBox.getSelectedIndex()].setEmployee(2, db.getEmployee(employeeBox2.getSelectedIndex()));
-								dayArray[listBox.getSelectedIndex()].setdoff(Double.valueOf(adjustment.getText()).doubleValue());
-								rightTop.setBackground(colr);
-							} catch (NumberFormatException e1) 
-							{
-								JOptionPane.showMessageDialog(hpane, "Error, you must make sure the amount over is a number, do not include \"$\"s");
-								// TODO Auto-generated catch block
-								//e1.printStackTrace();
-							}
-	                		//JOptionPane.showMessageDialog(rightTop, "arg1");
-	                		
-	                	}
-	                	else
-	                	{
-	                		JOptionPane.showMessageDialog(rightTop, "Please Make Sure you have a day and two employees selected");
-	                		//JOptionPane.showMessageDialog("Please Make Sure you have a day and two employees selected");
-	                	}
-	                }
-	            }
-	        );
-	        saveday.setPreferredSize(new Dimension(200,50));
-	        //dayBox = new JComboBox(dayNames);
-	               
-	        
-	        
-	        
-	        
-	        spane = new JScrollPane();
-	        spane.getViewport().add( listBox );
-	        //spane.setBounds(20, 20, 2000, 499);
-	        //spane.setSize(400,400);
-	        spane.setMinimumSize(new Dimension(150,300));
-	       
-	        
-	        leftPanel = new JPanel();
-	        	leftPanel.setLayout(new BorderLayout());
-	        	leftPanel.add(spane,BorderLayout.CENTER);
-	        
-	        
-	        //rightTop.setLayout(new GridLayout(0,1));
-	        
-	        rightTop.add(emp1Label,BorderLayout.NORTH);
-	        rightTop.add(employeeBox1,BorderLayout.CENTER);
-	        //rightTop.add(new JLabel(""));
-			{
-				emp2Label = new JLabel("Employee #2");
-				rightTop.add(emp2Label);
-			}
-			{
-				employeeBox2 = new JComboBox(employeeNames);
-				rightTop.add(employeeBox2);
-			}
-	        rightTop.setPreferredSize(new Dimension(110,300));
-	        rightTop.setMinimumSize(new Dimension(100,100));
-	        
-	        rightBottom = new JPanel();
-	        rightBottom.setLayout(new BorderLayout());
-	        //rightBottom.setLayout(new GridLayout(0,1));
-	        rightBottom.add(adjLabel,BorderLayout.NORTH);
-	        rightBottom.add(adjustment,BorderLayout.SOUTH);
-	        rightBottom.setPreferredSize(new Dimension(100,100));
-	        //rightBottom.add(new JLabel("ladfa"));
-	        //rightBottom.add(new JLabel("ladfa"));
-	               
-	        
-	        vpane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, rightTop, rightBottom);
-	        
-	        
-	        hpane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPanel, vpane);
-	        hpane.setPreferredSize(new Dimension(200,600));
-	        //hpane.setPreferedSize(200, 600);
-	        //hpane.setSize(dim);
-	        page1 = SWT_AWT.new_Frame(awtswt);
-	        page1.add(hpane,BorderLayout.CENTER);
-	        page1.add(saveday,BorderLayout.PAGE_END);
-	        //showGUI();
-	        //page1.setSize(dim);
-	        //page1.setSize(700,700);
+			
 			postInitGUI();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
+	/**
+	 * Make tab1.
+	 */
 	public void makeTab1()
     {
-    	
+//		rightTop = new JPanel();
+//    	final Color colr = rightTop.getBackground();
+//    	rightTop.setBackground(Color.RED);
+//        listBox = new JList(dayNames);
+//        listBox.setSelectedIndex(0);
+//        listBox.addListSelectionListener
+//        (
+//                new ListSelectionListener()
+//                {
+//                    public void valueChanged(ListSelectionEvent e)
+//                    {
+//                    	
+//						try 
+//						{
+		//TODO CODE for list listner
+//							employeeBox1.setSelectedIndex(dayArray[listBox.getSelectedIndex()].getEmployee(1).getEmpID());
+//							employeeBox2.setSelectedIndex(dayArray[listBox.getSelectedIndex()].getEmployee(2).getEmpID());
+//							adjustment.setText(df.format(dayArray[listBox.getSelectedIndex()].getdoff()));
+//							adjustment.setText((dayArray[listBox.getSelectedIndex()].getdoff())+"");
+//							rightTop.setBackground(colr);
+//						}
+//						catch (Exception exeption) 
+//						{
+//							
+//							rightTop.setBackground(Color.RED);
+//							adjustment.setText("0.00");
+//						}
+//                    }
+//                }
+//        );
+//        employeeBox1=new JComboBox(employeeNames);
+//
+//        emp1Label = new JLabel("Employee #1");
+//        adjLabel  = new JLabel("Adjustment (posistive if over, negative if short)");
+//        adjustment = new JTextField("0.00", 5);
+//        saveday = new JButton("Save");
+//        saveday.addActionListener
+//        (
+//            new ActionListener()
+//            {
+//                public void actionPerformed(ActionEvent e)
+//                {
+//                	if(listBox.getSelectedIndex()>=0 && employeeBox1.getSelectedIndex() >=0 && employeeBox2.getSelectedIndex()>=0)
+//                	{
+		//TODO code for save listner
+		
+//                		//System.out.println(""+listBox.getSelectedIndex());
+//                		try 
+//                		{
+//							dayArray[listBox.getSelectedIndex()].setEmployee(1, db.getEmployee(employeeBox1.getSelectedIndex()));
+//							dayArray[listBox.getSelectedIndex()].setEmployee(2, db.getEmployee(employeeBox2.getSelectedIndex()));
+//							dayArray[listBox.getSelectedIndex()].setdoff(Double.valueOf(adjustment.getText()).doubleValue());
+//							rightTop.setBackground(colr);
+//						} catch (NumberFormatException e1) 
+//						{
+//							JOptionPane.showMessageDialog(hpane, "Error, you must make sure the amount over is a number, do not include \"$\"s");
+//							
+//							//e1.printStackTrace();
+//						}
+//                		//JOptionPane.showMessageDialog(rightTop, "arg1");
+//                		
+//                	}
+//                	else
+//                	{
+//                		JOptionPane.showMessageDialog(rightTop, "Please Make Sure you have a day and two employees selected");
+//                		//JOptionPane.showMessageDialog("Please Make Sure you have a day and two employees selected");
+//                	}
+//                }
+//            }
+//        );
+//        saveday.setPreferredSize(new Dimension(200,50));
+//        //dayBox = new JComboBox(dayNames);
+//               
+//        
+//        
+//        
+//        
+//        spane = new JScrollPane();
+//        spane.getViewport().add( listBox );
+//        //spane.setBounds(20, 20, 2000, 499);
+//        //spane.setSize(400,400);
+//        spane.setMinimumSize(new Dimension(150,300));
+//       
+//        
+//        leftPanel = new JPanel();
+//        	leftPanel.setLayout(new BorderLayout());
+//        	leftPanel.add(spane,BorderLayout.CENTER);
+//        
+//        
+//        //rightTop.setLayout(new GridLayout(0,1));
+//        
+//        rightTop.add(emp1Label,BorderLayout.NORTH);
+//        rightTop.add(employeeBox1,BorderLayout.CENTER);
+//        //rightTop.add(new JLabel(""));
+//		{
+//			emp2Label = new JLabel("Employee #2");
+//			rightTop.add(emp2Label);
+//		}
+//		{
+//			employeeBox2 = new JComboBox(employeeNames);
+//			rightTop.add(employeeBox2);
+//		}
+//        rightTop.setPreferredSize(new Dimension(110,300));
+//        rightTop.setMinimumSize(new Dimension(100,100));
+//        
+//        rightBottom = new JPanel();
+//        rightBottom.setLayout(new BorderLayout());
+//        //rightBottom.setLayout(new GridLayout(0,1));
+//        rightBottom.add(adjLabel,BorderLayout.NORTH);
+//        rightBottom.add(adjustment,BorderLayout.SOUTH);
+//        rightBottom.setPreferredSize(new Dimension(100,100));
+//        //rightBottom.add(new JLabel("ladfa"));
+//        //rightBottom.add(new JLabel("ladfa"));
+//               
+//        
+//        vpane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, rightTop, rightBottom);
+//        
+//        
+//        hpane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPanel, vpane);
+//        hpane.setPreferredSize(new Dimension(200,600));
+//        //hpane.setPreferedSize(200, 600);
+//        //hpane.setSize(dim);
+//        page1 = SWT_AWT.new_Frame(awtswt);
+//        page1.add(hpane,BorderLayout.CENTER);
+//        page1.add(saveday,BorderLayout.PAGE_END);
+//        //showGUI();
+//        //page1.setSize(dim);
+//        //page1.setSize(700,700);
     }
+	
+	/**
+	 * Sets the emp data.
+	 */
 	public void setEmpData()
     {
 		//cempNumber.setText("3");
@@ -898,6 +1247,10 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
         
         
     }
+	
+	/**
+	 * Make data.
+	 */
 	public void makeData()
     {
         
@@ -918,6 +1271,10 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
         //employeeArray[0] = new Employee("Laura Norman","Linda","Female","My Fiancee",250.0,25.0);
         //makeTab1();
     }
+	
+	/**
+	 * Write account.
+	 */
 	public void writeAccount()
    	{
       try
@@ -937,6 +1294,9 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 //	                                .getText(), sut.getText()));
             s.writeObject(db);
 			s.flush();
+			fos.flush();
+			fos.close();
+			
 			s.close();
 			
 
@@ -955,9 +1315,10 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
       } // end catch
        
     } // end method openFile	
-	  /**
-	   * Write DB.
-	   */
+	  
+  	/**
+  	 * Write DB.
+  	 */
 	  public void writeDB()
   	{
   		try
@@ -968,6 +1329,8 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
   			ObjectOutputStream out1 = new ObjectOutputStream(fos);
           	out1.writeObject( db);
           	out1.flush();
+          	fos.flush();
+          	fos.close();
           	out1.close();
           	
     		
@@ -980,8 +1343,8 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
   	}
   	
 	  /**
-	   * Read DB.
-	   */
+  	 * Read DB.
+  	 */
 	  public void readDB()
   	{
  		try
@@ -992,7 +1355,7 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
  			
                            
             db =(SmoothieDataBase)in1.readObject();
-			              
+			fs.close();              
              
           	in1.close();
           	
@@ -1008,9 +1371,10 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
         	System.err.println("cls not found");
         }
   	}
+  		  
   		  /**
-	   * Read account.
-	   */
+  		   * Read account.
+  		   */
 	  public void readAccount()
   	{
   		try
@@ -1048,12 +1412,12 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
   	}
   	
 	  /**
-	   * Generate adjustments.
-	   * 
-	   * @param x the x
-	   * 
-	   * @return the double
-	   */
+  	 * Generate adjustments.
+  	 * 
+  	 * @param x the x
+  	 * 
+  	 * @return the double
+  	 */
 	  public Double generateAdjustments(int x)
   	{
   		double a=0;
@@ -1091,7 +1455,14 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
   		return a;
   	}
 	  
-	  public String generateSAdjustments(int x)
+	  /**
+  	 * Generate S adjustments.
+  	 * 
+  	 * @param x the x
+  	 * 
+  	 * @return the string
+  	 */
+  	public String generateSAdjustments(int x)
 	  	{
 	  		double a=0;
 	  		String s="";
@@ -1157,9 +1528,33 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 	  		}
 	  		//System.out.println("The s retruned is "+s);
 	  		return s;
-	  	}  
+	  	}
+  	public int getProgress()
+  	{
+  		int a=14;
+  		for(int i=0;i<14;i++)
+  		{
+			try 
+			{
+				dayArray[i].getEmployee(1).getEmpID();
+				
+				
+			}
+			catch (Exception e)
+			{
+				a--;
+				System.out.println("made it here");
+			} 
+  		}
+  		System.out.println("returned "+ a);
+  		return a;
+  		
+  		
+  	}
 	  
-	/** Add your pre-init code in here 	*/
+	/**
+	 * Add your pre-init code in here.
+	 */
 	public void preInitGUI(){
 		//System.setSecurityManager(null);
 		df = new DecimalFormat("¤#,##0.00");
@@ -1220,20 +1615,26 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
         
 	}
 
-	/** Add your post-init code in here 	*/
+	/**
+	 * Add your post-init code in here.
+	 */
 	public void postInitGUI(){
-		makeTab1();
+		//makeTab1();
 	}
 
-	/** Auto-generated main method */
+	/**
+	 * Auto-generated main method.
+	 * 
+	 * @param args the args
+	 */
 	public static void main(String[] args){
 		showGUI();
 	}
 
 	/**
-	* This static method creates a new instance of this class and shows
-	* it inside a new Shell.
-	**/
+	 * This static method creates a new instance of this class and shows
+	 * it inside a new Shell.
+	 */
 	public static void showGUI(){
 		try {
 			Display display = Display.getDefault();
@@ -1273,6 +1674,11 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 		}
 	}
 	
+	/**
+	 * Button1 mouse up.
+	 * 
+	 * @param evt the evt
+	 */
 	private void button1MouseUp(MouseEvent evt) {
 		System.out.println("cleftb.mouseUp, event=" + evt);
 		if(evt.getSource()==cleftb)
@@ -1364,8 +1770,17 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 				
 				
             makeData();
-            employeeBox1.setModel(new DefaultComboBoxModel(employeeNames));
-            employeeBox2.setModel(new DefaultComboBoxModel(employeeNames));
+            cemployeeBox1.setItems(employeeNames);
+            cemployeeBox1.setVisibleItemCount((int)(db.getNumEmployees()/3));
+            cemployeeBox2.setItems(employeeNames);
+            cemployeeBox2.setVisibleItemCount((int)(db.getNumEmployees()/3));
+            cemployeeBox1.update();
+            cemployeeBox1.redraw();
+            cemployeeBox2.update();
+            cemployeeBox2.redraw();
+            
+            //employeeBox1.setModel(new DefaultComboBoxModel(employeeNames));
+            //employeeBox2.setModel(new DefaultComboBoxModel(employeeNames));
             writeAccount();
             setEmpData();
         }
@@ -1378,8 +1793,17 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
         db.getEmployee(viewEmployeeNumber).setBaseSalary(Double.valueOf(cempBsal.getText()).doubleValue());
         db.getEmployee(viewEmployeeNumber).setEmpID(viewEmployeeNumber);
         makeData();
-        employeeBox1.setModel(new DefaultComboBoxModel(employeeNames));
-        employeeBox2.setModel(new DefaultComboBoxModel(employeeNames));
+        
+        cemployeeBox1.setItems(employeeNames);
+        cemployeeBox2.setItems(employeeNames);
+        cemployeeBox1.setVisibleItemCount((int)(db.getNumEmployees()/3));
+        cemployeeBox2.setVisibleItemCount((int)(db.getNumEmployees()/3));
+        cemployeeBox1.update();
+        cemployeeBox1.redraw();
+        cemployeeBox2.update();
+        cemployeeBox2.redraw();
+        //employeeBox1.setModel(new DefaultComboBoxModel(employeeNames));
+        //employeeBox2.setModel(new DefaultComboBoxModel(employeeNames));
         setEmpData();
 	}
 	
