@@ -17,7 +17,6 @@
 	<resources>
 		<j2se version="1.4+" />
 		<jar href="smoothieApp.jar" />
-		<jar href="OfficeLnFs_2.3.jar" />
 	</resources>
 
 	<resources os="Windows">
