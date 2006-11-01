@@ -44,21 +44,13 @@ import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class GregMainApp.
  */
 public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 
-	{
-		try {
-	         //UIManager.setLookAndFeel("org.fife.plaf.Office2003.Office2003LookAndFeel");
-	         //UIManager.setLookAndFeel("org.fife.plaf.OfficeXP.OfficeXPLookAndFeel");
-	         //UIManager.setLookAndFeel("org.fife.plaf.VisualStudio2005.VisualStudio2005LookAndFeel");
-	      } catch (Exception e) {
-	         System.err.println("Oops!  Something went wrong!");
-	      }
-	}
-
+	
 
 	{
 		//Register as a resource user - SWTResourceManager will
@@ -77,20 +69,50 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 	
 	/** The cemp tsal. */
 	private Text cempTsal;
+	
+	/** The label1. */
 	private Label label1;
+	
+	/** The c label11. */
 	private CLabel cLabel11;
+	
+	/** The text1. */
 	private Text text1;
+	
+	/** The progress bar1. */
 	private ProgressBar progressBar1;
+	
+	/** The group5. */
 	private Group group5;
+	
+	/** The group4. */
 	private Group group4;
+	
+	/** The list1. */
 	private List list1;
+	
+	/** The button1. */
 	private Button button1;
+	
+	/** The group44. */
 	private Group group44;
+	
+	/** The c label10. */
 	private CLabel cLabel10;
+	
+	/** The c label9. */
 	private CLabel cLabel9;
+	
+	/** The cemployee box2. */
 	private Combo cemployeeBox2;
+	
+	/** The cemployee box1. */
 	private Combo cemployeeBox1;
+	
+	/** The sash form2. */
 	private SashForm sashForm2;
+	
+	/** The sash form1. */
 	private SashForm sashForm1;
 
 	/** The group3. */
@@ -211,6 +233,7 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
     /** The days ordered. */
     private java.lang.String[] daysOrdered;
     
+    /** The message box. */
     private MessageBox messageBox;
    
    
@@ -1368,8 +1391,8 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
     } // end method openFile	
 	  
   	/**
-  	 * Write DB.
-  	 */
+	   * Write DB.
+	   */
 	  public void writeDB()
   	{
   		try
@@ -1580,7 +1603,13 @@ public class GregMainApp extends org.eclipse.swt.widgets.Composite {
 	  		//System.out.println("The s retruned is "+s);
 	  		return s;
 	  	}
-  	public int getProgress()
+  	
+	  /**
+	   * Gets the progress.
+	   * 
+	   * @return the progress
+	   */
+	  public int getProgress()
   	{
   		int a=14;
   		for(int i=0;i<14;i++)
