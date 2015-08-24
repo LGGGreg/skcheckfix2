@@ -3,7 +3,7 @@
 Basic useful feature list:
 
  * Calculates check adjustments from register inacuracies
- * Emplyee List with Base Salary
+ * Employee List with Base Salary
  * Ability to set the starting week day
  * Progress bar while entering in shortages
  * Java SWT interface.
@@ -21,3 +21,10 @@ This program allows compilation of an employee data base, and a nice SWT windows
  * ![First Tab](/Screenshots/s1.png?raw=true "First Tab")
  * ![Second Tab](/Screenshots/s2.png?raw=true "Second Tab")
  * ![Third Tab](/Screenshots/s3.png?raw=true "Third Tab")
+ 
+**Content License**
+  * [Creative Commons 3.0 BY-SA](http://creativecommons.org/licenses/by-sa/3.0/)
+  
+**Code Of Conduct**
+  * Treat everyone with respect.
+  
